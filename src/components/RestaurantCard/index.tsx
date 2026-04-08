@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import type { Restaurant } from '../../types'
+import starIcon from '../../assets/images/star.svg'
 import {
   Card,
   CardImage,
@@ -28,10 +29,7 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
         <CardHeader>
           <CardTitle>{restaurant.titulo}</CardTitle>
           <Rating>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Plain_Yellow_Star.png/480px-Plain_Yellow_Star.png"
-              alt="estrela"
-            />
+            <img src={starIcon} alt="estrela" />
             {restaurant.avaliacao}
           </Rating>
         </CardHeader>

@@ -1,4 +1,16 @@
 import type { Restaurant } from '../types'
+import restaurant1 from '../assets/images/restaurant-1.svg'
+import restaurant2 from '../assets/images/restaurant-2.svg'
+import restaurant3 from '../assets/images/restaurant-3.svg'
+import restaurant4 from '../assets/images/restaurant-4.svg'
+import restaurant5 from '../assets/images/restaurant-5.svg'
+import restaurant6 from '../assets/images/restaurant-6.svg'
+import food1 from '../assets/images/food-1.svg'
+import food2 from '../assets/images/food-2.svg'
+import food3 from '../assets/images/food-3.svg'
+import food4 from '../assets/images/food-4.svg'
+import food5 from '../assets/images/food-5.svg'
+import food6 from '../assets/images/food-6.svg'
 
 export const restaurants: Restaurant[] = [
   {
@@ -9,12 +21,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.9,
     descricao:
       'Descubra sabores irresistíveis no Bar do João, um refúgio gastronômico onde cada prato é uma obra-prima. Do clássico ao inovador, nossa cozinha é um balé de ingredientes frescos e técnicas refinadas. Aqui, a arte e a comida se encontram num ambiente onde o tempo para.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-1.png',
+    capa: restaurant1,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-1.png',
+        foto: food1,
         preco: 79.90,
         nome: 'Pappardelle com Ragù de Ossobuco',
         descricao:
@@ -23,7 +34,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 2,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-2.png',
+        foto: food2,
         preco: 85.90,
         nome: 'Lamen Tonkotsu',
         descricao:
@@ -32,7 +43,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 3,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-3.png',
+        foto: food3,
         preco: 67.90,
         nome: 'Tiramisu',
         descricao:
@@ -49,12 +60,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.7,
     descricao:
       'No Hioki Sushi, cada peça é um trabalho de arte. Utilizamos os melhores peixes importados para criar combinações que celebram a tradição japonesa com um toque contemporâneo.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-2.png',
+    capa: restaurant2,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-4.png',
+        foto: food4,
         preco: 55.90,
         nome: 'Combo Especial 10 Peças',
         descricao:
@@ -63,7 +73,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 2,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-5.png',
+        foto: food5,
         preco: 39.90,
         nome: 'Hot Philadelphia',
         descricao:
@@ -80,12 +90,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.8,
     descricao:
       'Autêntica pizza napolitana preparada com farinha italiana especial, tomate San Marzano e mozzarella de búfala. Cada pizza é assada em nosso forno a lenha importado de Nápoles.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-3.png',
+    capa: restaurant3,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-6.png',
+        foto: food6,
         preco: 48.90,
         nome: 'Pizza Margherita',
         descricao:
@@ -94,7 +103,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 2,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-1.png',
+        foto: food1,
         preco: 58.90,
         nome: 'Pizza Quattro Stagioni',
         descricao:
@@ -111,12 +120,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.5,
     descricao:
       'Caro Mio é uma experiência gastronômica autêntica da Itália. No coração do nosso restaurante, cada prato é preparado com ingredientes importados e técnicas tradicionais de geração em geração.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-4.png',
+    capa: restaurant4,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-2.png',
+        foto: food2,
         preco: 72.90,
         nome: 'Risotto ai Funghi',
         descricao:
@@ -133,12 +141,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.3,
     descricao:
       'XBurguer é o paraíso dos amantes de hambúrgueres artesanais. Com ingredientes premium e combinações ousadas, cada burger é uma explosão de sabor que vai muito além do convencional.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-5.png',
+    capa: restaurant5,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-3.png',
+        foto: food3,
         preco: 34.90,
         nome: 'XXL Smash Burger',
         descricao:
@@ -147,7 +154,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 2,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-4.png',
+        foto: food4,
         preco: 28.90,
         nome: 'Chicken Crispy',
         descricao:
@@ -164,12 +171,11 @@ export const restaurants: Restaurant[] = [
     avaliacao: 4.6,
     descricao:
       'Terapia Grill é o templo das carnes grelhadas. Utilizamos apenas cortes nobres de gado criado em pastagem, preparados por especialistas que dominam a arte do grelhado perfeito.',
-    capa:
-      'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/restaurant-cover-6.png',
+    capa: restaurant6,
     cardapio: [
       {
         id: 1,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-5.png',
+        foto: food5,
         preco: 124.90,
         nome: 'Picanha na Brasa',
         descricao:
@@ -178,7 +184,7 @@ export const restaurants: Restaurant[] = [
       },
       {
         id: 2,
-        foto: 'https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/foods/food-6.png',
+        foto: food6,
         preco: 98.90,
         nome: 'Costela BBQ',
         descricao:

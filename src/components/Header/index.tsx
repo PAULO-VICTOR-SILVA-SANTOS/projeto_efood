@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../../assets/images/logo.svg'
 import {
   HeaderContainer,
   HeaderContent,
@@ -21,14 +22,7 @@ const Header = ({ isRestaurantPage = false, cartItemsCount = 0, onCartOpen }: He
     <HeaderContainer $isRestaurantPage={isRestaurantPage}>
       <HeaderContent>
         <Link to="/">
-          <Logo
-            src="https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/logo.svg"
-            alt="eFood logo"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement
-              target.style.display = 'none'
-            }}
-          />
+          <Logo src={logo} alt="eFood logo" />
         </Link>
         <CartButton onClick={onCartOpen}>
           {cartItemsCount} produto{cartItemsCount !== 1 ? 's' : ''} no carrinho

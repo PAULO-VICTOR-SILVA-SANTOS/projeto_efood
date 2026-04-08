@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/theme'
+import { colors, breakpoints } from '../../styles/theme'
 
 export const HeaderContainer = styled.header<{ $isRestaurantPage?: boolean }>`
   background-color: ${({ $isRestaurantPage }) =>
@@ -14,10 +14,23 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 16px;
+    gap: 16px;
+  }
 `
 
 export const Logo = styled.img`
   width: 125px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 102px;
+  }
 `
 
 export const CartButton = styled.button`
@@ -31,6 +44,12 @@ export const CartButton = styled.button`
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: right;
+  }
 `
 
 export const HeroSection = styled.section`
@@ -43,6 +62,14 @@ export const HeroContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 120px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 16px;
+  }
 `
 
 export const HeroTitle = styled.h1`
@@ -50,6 +77,11 @@ export const HeroTitle = styled.h1`
   font-size: 36px;
   font-weight: 900;
   line-height: 42px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 28px;
+    line-height: 34px;
+  }
 `
 
 export const HeroSubtitle = styled.p`
@@ -57,6 +89,11 @@ export const HeroSubtitle = styled.p`
   font-size: 16px;
   line-height: 24px;
   margin-top: 16px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 14px;
+    line-height: 22px;
+  }
 `
 
 export const RestaurantBanner = styled.div<{ $bgImage: string }>`

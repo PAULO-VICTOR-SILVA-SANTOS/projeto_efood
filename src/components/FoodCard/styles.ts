@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/theme'
+import { colors, breakpoints } from '../../styles/theme'
 
 export const Card = styled.div`
   background-color: ${colors.cream};
   border: 1px solid ${colors.salmon};
-  max-width: 304px;
+  max-width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,10 @@ export const FoodImage = styled.img`
   width: 100%;
   height: 167px;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 190px;
+  }
 `
 
 export const FoodContent = styled.div`

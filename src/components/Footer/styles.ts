@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/theme'
+import { colors, breakpoints } from '../../styles/theme'
 
 export const FooterContainer = styled.footer`
   background-color: ${colors.salmon};
@@ -15,6 +15,15 @@ export const FooterContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 16px;
+    gap: 24px;
+  }
 `
 
 export const FooterLogo = styled.img`
@@ -43,4 +52,9 @@ export const FooterText = styled.p`
   font-size: 10px;
   line-height: 16px;
   max-width: 480px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 11px;
+    line-height: 18px;
+  }
 `

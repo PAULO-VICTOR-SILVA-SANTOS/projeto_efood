@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/theme'
+import { colors, breakpoints } from '../../styles/theme'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -21,6 +21,11 @@ export const CartSidebar = styled.aside`
   flex-direction: column;
   gap: 16px;
   overflow-y: auto;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: min(100vw, 320px);
+    padding: 24px 12px;
+  }
 `
 
 export const CartTitle = styled.h2`
@@ -60,6 +65,10 @@ export const CartItemName = styled.h3`
   font-size: 18px;
   font-weight: 700;
   color: ${colors.darkGray};
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
+  }
 `
 
 export const CartItemPrice = styled.p`

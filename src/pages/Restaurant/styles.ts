@@ -16,6 +16,10 @@ export const Banner = styled.div<{ $bgImage: string }>`
     inset: 0;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 220px;
+  }
 `
 
 export const BannerTitle = styled.h2`
@@ -30,12 +34,29 @@ export const BannerTitle = styled.h2`
   font-size: 36px;
   font-weight: 900;
   z-index: 1;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 0 16px;
+    font-size: 28px;
+  }
 `
 
 export const MenuSection = styled.section`
   max-width: 1024px;
   margin: 0 auto;
   padding: 56px 120px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 40px 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 28px 16px;
+  }
 `
 
 export const MenuTitle = styled.h3`
@@ -52,9 +73,11 @@ export const FoodGrid = styled.div`
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 `

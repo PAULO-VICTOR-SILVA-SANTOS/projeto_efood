@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles/theme'
+import { colors, breakpoints } from '../../styles/theme'
 
 export const Card = styled.div`
   background-color: ${colors.white};
@@ -14,6 +14,10 @@ export const CardImage = styled.img`
   width: 100%;
   height: 217px;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 180px;
+  }
 `
 
 export const CardContent = styled.div`
@@ -28,6 +32,7 @@ export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
 `
 
 export const CardTitle = styled.h3`
@@ -35,6 +40,11 @@ export const CardTitle = styled.h3`
   font-weight: 900;
   color: ${colors.darkGray};
   line-height: 22px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 `
 
 export const Rating = styled.div`
@@ -48,6 +58,10 @@ export const Rating = styled.div`
   img {
     width: 21px;
     height: 21px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
   }
 `
 

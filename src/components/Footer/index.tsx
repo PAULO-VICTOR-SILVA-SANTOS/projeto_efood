@@ -6,42 +6,30 @@ import {
   SocialIcon,
   FooterText,
 } from './styles'
+import logo from '../../assets/images/logo.svg'
+import facebookIcon from '../../assets/images/icon-facebook.svg'
+import xIcon from '../../assets/images/icon-x.svg'
+import instagramIcon from '../../assets/images/icon-instagram.svg'
 
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
-        <FooterLogo
-          src="https://raw.githubusercontent.com/felipeAguiarCode/react-play/main/src/assets/logo.svg"
-          alt="eFood logo"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement
-            target.style.display = 'none'
-          }}
-        />
+        <FooterLogo src={logo} alt="eFood logo" />
         <SocialLinks>
           <SocialIcon href="#" aria-label="Facebook">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook"
-            />
+            <img src={facebookIcon} alt="Facebook" />
           </SocialIcon>
           <SocialIcon href="#" aria-label="Twitter/X">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg"
-              alt="Twitter"
-            />
+            <img src={xIcon} alt="Twitter" />
           </SocialIcon>
           <SocialIcon href="#" aria-label="Instagram">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-              alt="Instagram"
-            />
+            <img src={instagramIcon} alt="Instagram" />
           </SocialIcon>
         </SocialLinks>
         <FooterText>
           A eFood é uma plataforma para divulgação de perfis de restaurantes, pratos e itens de
-          alimentação. &copy; 2024 eFood
+          alimentação. &copy; 2026 eFood
         </FooterText>
       </FooterContent>
     </FooterContainer>

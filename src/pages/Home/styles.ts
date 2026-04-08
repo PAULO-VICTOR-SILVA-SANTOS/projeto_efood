@@ -5,6 +5,14 @@ export const RestaurantList = styled.section`
   max-width: 1024px;
   margin: 0 auto;
   padding: 80px 120px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 48px 24px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding: 32px 16px;
+  }
 `
 
 export const SectionTitle = styled.h2`
@@ -21,5 +29,6 @@ export const Grid = styled.div`
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 `
