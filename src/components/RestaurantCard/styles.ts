@@ -14,6 +14,7 @@ export const CardImage = styled.img`
   width: 100%;
   height: 217px;
   object-fit: cover;
+  object-position: left center;
 
   @media (max-width: ${breakpoints.mobile}) {
     height: 180px;
@@ -40,6 +41,9 @@ export const CardTitle = styled.h3`
   font-weight: 900;
   color: ${colors.darkGray};
   line-height: 22px;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 16px;
