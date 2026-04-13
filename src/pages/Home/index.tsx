@@ -42,6 +42,7 @@ const Home = () => {
         items={cartItems}
         onClose={() => setCartOpen(false)}
         onRemoveItem={handleRemoveFromCart}
+        onClearCart={() => setCartItems([])}
       />
     </>
   )

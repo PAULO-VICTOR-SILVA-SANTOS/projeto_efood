@@ -3,11 +3,15 @@ import { colors, breakpoints } from '../../styles/theme'
 
 export const Card = styled.div`
   background-color: ${colors.white};
-  border: 1px solid ${colors.lightGray};
+  border: 1px solid ${colors.salmon};
   max-width: 472px;
   width: 100%;
   display: flex;
   flex-direction: column;
+`
+
+export const CardImageWrapper = styled.div`
+  position: relative;
 `
 
 export const CardImage = styled.img`
@@ -22,7 +26,7 @@ export const CardImage = styled.img`
 `
 
 export const CardContent = styled.div`
-  padding: 16px;
+  padding: 8px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -39,7 +43,7 @@ export const CardHeader = styled.div`
 export const CardTitle = styled.h3`
   font-size: 18px;
   font-weight: 900;
-  color: ${colors.darkGray};
+  color: ${colors.salmon};
   line-height: 22px;
   text-align: left;
   flex: 1;
@@ -54,10 +58,10 @@ export const CardTitle = styled.h3`
 export const Rating = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-size: 18px;
   font-weight: 700;
-  color: ${colors.darkGray};
+  color: ${colors.salmon};
 
   img {
     width: 21px;
@@ -72,7 +76,7 @@ export const Rating = styled.div`
 export const CardDescription = styled.p`
   font-size: 14px;
   line-height: 22px;
-  color: ${colors.darkGray};
+  color: ${colors.salmon};
   flex: 1;
 `
 
@@ -80,7 +84,9 @@ export const TagsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 8px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
 
 export const Tag = styled.span`
@@ -89,12 +95,10 @@ export const Tag = styled.span`
   color: ${colors.cream};
   background-color: ${colors.salmon};
   padding: 4px 6px;
-  border-radius: 2px;
 `
 
 export const FeaturedTag = styled(Tag)`
-  background-color: ${colors.yellow};
-  color: ${colors.darkGray};
+  background-color: ${colors.salmon};
 `
 
 export const CardButton = styled.button`
@@ -103,15 +107,9 @@ export const CardButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   padding: 4px 6px;
-  border-radius: 4px;
   border: none;
   cursor: pointer;
   margin-top: 12px;
-  width: 100%;
+  width: fit-content;
   text-align: center;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #d4584c;
-  }
 `

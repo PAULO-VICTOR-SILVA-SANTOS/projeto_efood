@@ -1,27 +1,47 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { colors, breakpoints } from '../../styles/theme'
 
 export const HeaderContainer = styled.header<{ $isRestaurantPage?: boolean }>`
-  background-color: ${({ $isRestaurantPage }) =>
-    $isRestaurantPage ? colors.darkGray : colors.cream};
-  padding: 24px 0;
+  background-color: ${colors.cream};
+  background-image:
+    linear-gradient(45deg, rgba(230, 103, 103, 0.06) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(230, 103, 103, 0.06) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(230, 103, 103, 0.06) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(230, 103, 103, 0.06) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  padding: 24px 0 40px;
 `
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled.div<{ $isRestaurantPage?: boolean }>`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 120px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ $isRestaurantPage }) =>
+    $isRestaurantPage ? 'space-between' : 'center'};
+
+  div {
+    width: 180px;
+  }
 
   @media (max-width: ${breakpoints.tablet}) {
     padding: 0 24px;
+
+    div {
+      width: 130px;
+    }
   }
 
   @media (max-width: ${breakpoints.mobile}) {
     padding: 0 16px;
     gap: 16px;
+
+    div {
+      width: 90px;
+    }
   }
 `
 
@@ -35,33 +55,40 @@ export const Logo = styled.img`
 
 export const CartButton = styled.button`
   color: ${colors.salmon};
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 900;
-  line-height: 22px;
+  line-height: 21px;
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-align: right;
 
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
-    text-align: right;
   }
 `
 
+export const HomeLink = styled(Link)`
+  color: ${colors.salmon};
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
+`
+
 export const HeroSection = styled.section`
-  background-color: ${colors.salmon};
-  padding: 40px 0;
+  padding-top: 138px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    padding-top: 72px;
+  }
 `
 
 export const HeroContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 120px;
+  padding: 0 24px;
 
   @media (max-width: ${breakpoints.tablet}) {
     padding: 0 24px;
@@ -73,10 +100,12 @@ export const HeroContent = styled.div`
 `
 
 export const HeroTitle = styled.h1`
-  color: ${colors.cream};
+  color: ${colors.salmon};
   font-size: 36px;
   font-weight: 900;
   line-height: 42px;
+  max-width: 539px;
+  margin: 0 auto;
 
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 28px;
@@ -94,31 +123,4 @@ export const HeroSubtitle = styled.p`
     font-size: 14px;
     line-height: 22px;
   }
-`
-
-export const RestaurantBanner = styled.div<{ $bgImage: string }>`
-  height: 280px;
-  background-image: url(${({ $bgImage }) => $bgImage});
-  background-size: cover;
-  background-position: center;
-  position: relative;
-`
-
-export const RestaurantBannerOverlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-`
-
-export const RestaurantBannerTitle = styled.h2`
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  color: ${colors.white};
-  font-size: 36px;
-  font-weight: 900;
 `

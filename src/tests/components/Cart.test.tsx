@@ -106,4 +106,94 @@ describe('Cart - Aberto com itens', () => {
       screen.getByRole('button', { name: /Continuar com a entrega/i }),
     ).toBeInTheDocument()
   })
+
+  it('deve navegar pelas etapas de entrega e pagamento até confirmação', async () => {
+    render(<Cart isOpen={true} items={items} onClose={vi.fn()} onRemoveItem={vi.fn()} />)
+
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com a entrega/i }))
+    expect(screen.getByText('Entrega')).toBeInTheDocument()
+
+    await userEvent.type(screen.getByLabelText(/Quem irá receber/i), 'Maria da Silva')
+    await userEvent.type(screen.getByLabelText(/^Endereço$/i), 'Rua das Flores')
+    await userEvent.type(screen.getByLabelText(/^Cidade$/i), 'São Paulo')
+    await userEvent.type(screen.getByLabelText(/^CEP$/i), '01234000')
+    await userEvent.type(screen.getByLabelText(/^Número$/i), '123')
+
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com o pagamento/i }))
+    expect(screen.getByText(/Pagamento - Valor a pagar/i)).toBeInTheDocument()
+
+    await userEvent.type(screen.getByLabelText(/Nome no cartão/i), 'Maria da Silva')
+    await userEvent.type(screen.getByLabelText(/Número do cartão/i), '4111111111111111')
+    await userEvent.type(screen.getByLabelText(/^CVV$/i), '123')
+    await userEvent.type(screen.getByLabelText(/Mês de vencimento/i), '12')
+    await userEvent.type(screen.getByLabelText(/Ano de vencimento/i), '2030')
+
+    await userEvent.click(screen.getByRole('button', { name: /Finalizar pagamento/i }))
+    expect(screen.getByText(/Pedido realizado/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Concluir/i })).toBeInTheDocument()
+  })
+
+  it('deve limpar o carrinho ao finalizar pagamento quando onClearCart for enviado', async () => {
+    const onClearCart = vi.fn()
+
+    render(
+      <Cart
+        isOpen={true}
+        items={items}
+        onClose={vi.fn()}
+        onRemoveItem={vi.fn()}
+        onClearCart={onClearCart}
+      />,
+    )
+
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com a entrega/i }))
+
+    await userEvent.type(screen.getByLabelText(/Quem irá receber/i), 'Maria da Silva')
+    await userEvent.type(screen.getByLabelText(/^Endereço$/i), 'Rua das Flores')
+    await userEvent.type(screen.getByLabelText(/^Cidade$/i), 'São Paulo')
+    await userEvent.type(screen.getByLabelText(/^CEP$/i), '01234000')
+    await userEvent.type(screen.getByLabelText(/^Número$/i), '123')
+
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com o pagamento/i }))
+
+    await userEvent.type(screen.getByLabelText(/Nome no cartão/i), 'Maria da Silva')
+    await userEvent.type(screen.getByLabelText(/Número do cartão/i), '4111111111111111')
+    await userEvent.type(screen.getByLabelText(/^CVV$/i), '123')
+    await userEvent.type(screen.getByLabelText(/Mês de vencimento/i), '12')
+    await userEvent.type(screen.getByLabelText(/Ano de vencimento/i), '2030')
+
+    await userEvent.click(screen.getByRole('button', { name: /Finalizar pagamento/i }))
+    expect(onClearCart).toHaveBeenCalledOnce()
+  })
+
+  it('deve aplicar máscaras nos campos de CEP, cartão, CVV e validade', async () => {
+    render(<Cart isOpen={true} items={items} onClose={vi.fn()} onRemoveItem={vi.fn()} />)
+
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com a entrega/i }))
+
+    const zipCodeInput = screen.getByLabelText(/^CEP$/i) as HTMLInputElement
+    await userEvent.type(zipCodeInput, '12345678')
+    expect(zipCodeInput.value).toBe('12345-678')
+
+    await userEvent.type(screen.getByLabelText(/Quem irá receber/i), 'Maria')
+    await userEvent.type(screen.getByLabelText(/^Endereço$/i), 'Rua A')
+    await userEvent.type(screen.getByLabelText(/^Cidade$/i), 'SP')
+    await userEvent.type(screen.getByLabelText(/^Número$/i), '10')
+    await userEvent.click(screen.getByRole('button', { name: /Continuar com o pagamento/i }))
+
+    const cardNumberInput = screen.getByLabelText(/Número do cartão/i) as HTMLInputElement
+    const cvvInput = screen.getByLabelText(/^CVV$/i) as HTMLInputElement
+    const monthInput = screen.getByLabelText(/Mês de vencimento/i) as HTMLInputElement
+    const yearInput = screen.getByLabelText(/Ano de vencimento/i) as HTMLInputElement
+
+    await userEvent.type(cardNumberInput, '4111111111111111')
+    await userEvent.type(cvvInput, '1234')
+    await userEvent.type(monthInput, '13')
+    await userEvent.type(yearInput, '203012')
+
+    expect(cardNumberInput.value).toBe('4111 1111 1111 1111')
+    expect(cvvInput.value).toBe('123')
+    expect(monthInput.value).toBe('12')
+    expect(yearInput.value).toBe('2030')
+  })
 })

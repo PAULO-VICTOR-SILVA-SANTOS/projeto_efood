@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { colors, breakpoints } from '../../styles/theme'
 
 export const Card = styled.div`
-  background-color: ${colors.cream};
-  border: 1px solid ${colors.salmon};
+  background-color: ${colors.salmon};
   max-width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 8px;
 `
 
 export const FoodImage = styled.img`
@@ -21,7 +21,7 @@ export const FoodImage = styled.img`
 `
 
 export const FoodContent = styled.div`
-  padding: 8px;
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -31,34 +31,28 @@ export const FoodContent = styled.div`
 export const FoodName = styled.h4`
   font-size: 16px;
   font-weight: 900;
-  color: ${colors.darkGray};
+  color: ${colors.cream};
 `
 
 export const FoodDescription = styled.p`
   font-size: 14px;
   line-height: 22px;
-  color: ${colors.darkGray};
+  color: ${colors.cream};
   flex: 1;
 `
 
 export const FoodPrice = styled.p`
   font-size: 14px;
   font-weight: 700;
-  color: ${colors.darkGray};
+  color: ${colors.cream};
 `
 
 export const AddButton = styled.button`
-  background-color: ${colors.salmon};
-  color: ${colors.cream};
+  background-color: ${colors.cream};
+  color: ${colors.salmon};
   font-size: 14px;
   font-weight: 700;
   padding: 4px 6px;
-  border-radius: 4px;
   width: 100%;
   margin-top: 8px;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #d4584c;
-  }
 `

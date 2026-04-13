@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors, breakpoints } from '../../styles/theme'
 
 export const FooterContainer = styled.footer`
-  background-color: ${colors.salmon};
+  background-color: ${colors.cream};
   padding: 40px 0;
   text-align: center;
 `
@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
 export const FooterContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 120px;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,12 +43,11 @@ export const SocialIcon = styled.a`
   img {
     width: 24px;
     height: 24px;
-    filter: brightness(0) invert(1);
   }
 `
 
 export const FooterText = styled.p`
-  color: ${colors.cream};
+  color: ${colors.salmon};
   font-size: 10px;
   line-height: 16px;
   max-width: 480px;

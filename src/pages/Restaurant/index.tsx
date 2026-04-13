@@ -9,9 +9,9 @@ import Cart from '../../components/Cart'
 import {
   RestaurantPageContainer,
   Banner,
+  BannerCategory,
   BannerTitle,
   MenuSection,
-  MenuTitle,
   FoodGrid,
 } from './styles'
 
@@ -56,10 +56,10 @@ const Restaurant = () => {
         onCartOpen={() => setCartOpen(true)}
       />
       <Banner $bgImage={restaurant.capa}>
+        <BannerCategory>{restaurant.tipo}</BannerCategory>
         <BannerTitle>{restaurant.titulo}</BannerTitle>
       </Banner>
       <MenuSection>
-        <MenuTitle>Cardápio</MenuTitle>
         <FoodGrid>
           {restaurant.cardapio.map((food) => (
             <FoodCard key={food.id} food={food} onAddToCart={handleAddToCart} />
@@ -72,6 +72,7 @@ const Restaurant = () => {
         items={cartItems}
         onClose={() => setCartOpen(false)}
         onRemoveItem={handleRemoveFromCart}
+        onClearCart={() => setCartItems([])}
       />
     </RestaurantPageContainer>
   )

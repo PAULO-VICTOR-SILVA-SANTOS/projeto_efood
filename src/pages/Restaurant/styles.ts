@@ -18,18 +18,37 @@ export const Banner = styled.div<{ $bgImage: string }>`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    height: 220px;
+    height: 210px;
+  }
+`
+
+export const BannerCategory = styled.span`
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 24px;
+  color: ${colors.white};
+  font-size: 32px;
+  font-weight: 100;
+  z-index: 1;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 24px;
+    padding: 0 16px;
   }
 `
 
 export const BannerTitle = styled.h2`
   position: absolute;
-  bottom: 32px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 1024px;
-  padding: 0 120px;
+  padding: 0 24px;
   color: ${colors.white};
   font-size: 36px;
   font-weight: 900;
@@ -48,7 +67,7 @@ export const BannerTitle = styled.h2`
 export const MenuSection = styled.section`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 56px 120px;
+  padding: 56px 24px 120px;
 
   @media (max-width: ${breakpoints.tablet}) {
     padding: 40px 24px;
@@ -57,13 +76,6 @@ export const MenuSection = styled.section`
   @media (max-width: ${breakpoints.mobile}) {
     padding: 28px 16px;
   }
-`
-
-export const MenuTitle = styled.h3`
-  font-size: 18px;
-  font-weight: 900;
-  color: ${colors.darkGray};
-  margin-bottom: 40px;
 `
 
 export const FoodGrid = styled.div`

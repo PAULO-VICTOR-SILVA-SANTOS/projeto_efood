@@ -23,9 +23,9 @@ describe('Header', () => {
     ).toBeInTheDocument()
   })
 
-  it('deve renderizar o subtítulo hero na página inicial', () => {
+  it('não deve renderizar o subtítulo hero na página inicial', () => {
     renderHeader({ isRestaurantPage: false })
-    expect(screen.getByText(/Com o eFood, você tem acesso/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Com o eFood, você tem acesso/i)).not.toBeInTheDocument()
   })
 
   it('não deve renderizar a seção hero na página de restaurante', () => {
@@ -35,26 +35,26 @@ describe('Header', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('deve exibir "0 produtos no carrinho" por padrão', () => {
+  it('não deve exibir botão de carrinho na página inicial', () => {
     renderHeader()
     expect(
-      screen.getByRole('button', { name: /0\s*produtos\s*no\s*carrinho/i }),
-    ).toBeInTheDocument()
+      screen.queryByRole('button', { name: /produtos?\s*no\s*carrinho/i }),
+    ).not.toBeInTheDocument()
   })
 
-  it('deve exibir "1 produto no carrinho" no singular', () => {
-    renderHeader({ cartItemsCount: 1 })
+  it('deve exibir "1 produto no carrinho" no singular na página de restaurante', () => {
+    renderHeader({ isRestaurantPage: true, cartItemsCount: 1 })
     expect(screen.getByText(/1 produto no carrinho/i)).toBeInTheDocument()
   })
 
-  it('deve exibir "3 produtos no carrinho" no plural', () => {
-    renderHeader({ cartItemsCount: 3 })
+  it('deve exibir "3 produtos no carrinho" no plural na página de restaurante', () => {
+    renderHeader({ isRestaurantPage: true, cartItemsCount: 3 })
     expect(screen.getByText(/3 produtos no carrinho/i)).toBeInTheDocument()
   })
 
-  it('deve chamar onCartOpen ao clicar no botão do carrinho', () => {
+  it('deve chamar onCartOpen ao clicar no botão do carrinho na página de restaurante', () => {
     const onCartOpen = vi.fn()
-    renderHeader({ onCartOpen })
+    renderHeader({ isRestaurantPage: true, onCartOpen })
     screen.getByRole('button', { name: /0\s*produtos\s*no\s*carrinho/i }).click()
     expect(onCartOpen).toHaveBeenCalledOnce()
   })

@@ -3,6 +3,7 @@ import type { Restaurant } from '../../types'
 import starIcon from '../../assets/images/star.svg'
 import {
   Card,
+  CardImageWrapper,
   CardImage,
   CardContent,
   CardHeader,
@@ -24,7 +25,15 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 
   return (
     <Card>
-      <CardImage src={restaurant.capa} alt={restaurant.titulo} />
+      <CardImageWrapper>
+        <CardImage src={restaurant.capa} alt={restaurant.titulo} />
+        <TagsContainer>
+          {restaurant.destacado && <FeaturedTag>Destaque da semana</FeaturedTag>}
+          {restaurant.tipo.split(' / ').map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </TagsContainer>
+      </CardImageWrapper>
       <CardContent>
         <CardHeader>
           <CardTitle>{restaurant.titulo}</CardTitle>
@@ -34,12 +43,6 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
           </Rating>
         </CardHeader>
         <CardDescription>{restaurant.descricao}</CardDescription>
-        <TagsContainer>
-          {restaurant.destacado && <FeaturedTag>Destaque da semana</FeaturedTag>}
-          {restaurant.tipo.split(' / ').map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </TagsContainer>
         <CardButton onClick={() => navigate(`/restaurante/${restaurant.id}`)}>
           Saiba mais
         </CardButton>
