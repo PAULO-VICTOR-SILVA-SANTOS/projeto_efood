@@ -4,10 +4,10 @@ import { colors, breakpoints } from '../../styles/theme'
 export const RestaurantList = styled.section`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 80px 120px;
+  padding: 80px 0 120px;
 
   @media (max-width: ${breakpoints.tablet}) {
-    padding: 48px 24px;
+    padding: 48px 16px;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -25,7 +25,8 @@ export const SectionTitle = styled.h2`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px 80px;
+  column-gap: 80px;
+  row-gap: 48px;
 
   @media (max-width: ${breakpoints.tablet}) {
     grid-template-columns: 1fr;

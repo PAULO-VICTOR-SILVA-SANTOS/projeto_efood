@@ -1,6 +1,7 @@
 import type { FoodItem } from '../../types'
 import {
   Card,
+  FoodImageWrapper,
   FoodImage,
   FoodContent,
   FoodName,
@@ -20,7 +21,9 @@ const FoodCard = ({ food, onAddToCart }: FoodCardProps) => {
 
   return (
     <Card>
-      <FoodImage src={food.foto} alt={food.nome} />
+      <FoodImageWrapper>
+        <FoodImage src={food.foto} alt={food.nome} />
+      </FoodImageWrapper>
       <FoodContent>
         <FoodName>{food.nome}</FoodName>
         <FoodDescription>{food.descricao}</FoodDescription>

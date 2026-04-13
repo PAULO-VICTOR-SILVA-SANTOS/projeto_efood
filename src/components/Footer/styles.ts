@@ -10,14 +10,14 @@ export const FooterContainer = styled.footer`
 export const FooterContent = styled.div`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 120px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 
   @media (max-width: ${breakpoints.tablet}) {
-    padding: 0 24px;
+    padding: 0 16px;
   }
 
   @media (max-width: ${breakpoints.mobile}) {

@@ -25,21 +25,21 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
   return (
     <Card>
       <CardImage src={restaurant.capa} alt={restaurant.titulo} />
+      <TagsContainer>
+        {restaurant.destacado && <FeaturedTag>Destaque da semana</FeaturedTag>}
+        {restaurant.tipo.split(' / ').map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
+      </TagsContainer>
       <CardContent>
         <CardHeader>
           <CardTitle>{restaurant.titulo}</CardTitle>
           <Rating>
-            <img src={starIcon} alt="estrela" />
             {restaurant.avaliacao}
+            <img src={starIcon} alt="estrela" />
           </Rating>
         </CardHeader>
         <CardDescription>{restaurant.descricao}</CardDescription>
-        <TagsContainer>
-          {restaurant.destacado && <FeaturedTag>Destaque da semana</FeaturedTag>}
-          {restaurant.tipo.split(' / ').map((tag) => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </TagsContainer>
         <CardButton onClick={() => navigate(`/restaurante/${restaurant.id}`)}>
           Saiba mais
         </CardButton>

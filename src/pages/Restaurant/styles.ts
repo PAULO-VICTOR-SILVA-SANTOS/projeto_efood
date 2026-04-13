@@ -29,29 +29,30 @@ export const BannerTitle = styled.h2`
   transform: translateX(-50%);
   width: 100%;
   max-width: 1024px;
-  padding: 0 120px;
+  padding: 0 0 0 0;
   color: ${colors.white};
   font-size: 36px;
   font-weight: 900;
   z-index: 1;
 
   @media (max-width: ${breakpoints.tablet}) {
-    padding: 0 24px;
+    padding: 0 16px;
+    font-size: 30px;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
     padding: 0 16px;
-    font-size: 28px;
+    font-size: 24px;
   }
 `
 
 export const MenuSection = styled.section`
   max-width: 1024px;
   margin: 0 auto;
-  padding: 56px 120px;
+  padding: 56px 0 80px;
 
   @media (max-width: ${breakpoints.tablet}) {
-    padding: 40px 24px;
+    padding: 40px 16px;
   }
 
   @media (max-width: ${breakpoints.mobile}) {
